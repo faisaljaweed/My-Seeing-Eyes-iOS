@@ -421,12 +421,12 @@ class _SecondPageState extends State<SecondPage> with WidgetsBindingObserver {
       };
 
       String emergencyNumber = emergencyNumbers[countryCode] ??
-          '112'; // Default to '112' if the country is not in the map
+          '+911'; // Default to '112' if the country is not in the map
       print('Emergency Number: $emergencyNumber');
       return emergencyNumber;
     } catch (e) {
       print('Error: $e');
-      return '112'; // Default emergency number
+      return '+911'; // Default emergency number
     }
   }
 

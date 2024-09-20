@@ -36,6 +36,8 @@
     <string>This app uses the microphone to speak out loud the names of icons for visually impaired users.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
     <string>This app needs access to your photo library so you can choose videos or images to upload.</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+    <string>This app needs access to your location even when the app is not in use to provide timely emergency assistance.</string>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
 	<key>UILaunchStoryboardName</key>
