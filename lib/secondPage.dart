@@ -3,6 +3,8 @@ import 'dart:async';
 import 'package:camera/camera.dart';
 import 'package:first/accessibility_settings.dart';
 import 'package:first/comingsoon.dart';
+import 'package:first/dualbrowser.dart';
+import 'package:first/dualsocial.dart';
 import 'package:first/recordsplitbackcamera.dart';
 import 'package:first/recordsplitfrontcamera.dart';
 import 'package:first/splitbackcamera.dart';
@@ -144,94 +146,94 @@ class _SecondPageState extends State<SecondPage> with WidgetsBindingObserver {
     super.dispose();
   }
 
-  Future<void> enablePiPs(bool useFrontCamera) async {
-    if (!isPiPEnabled) {
-      CameraDescription cameraToUse;
+  // Future<void> enablePiPs(bool useFrontCamera) async {
+  //   if (!isPiPEnabled) {
+  //     CameraDescription cameraToUse;
 
-      if (useFrontCamera) {
-        // Use front camera
-        cameraToUse = widget.cameras.firstWhere(
-          (camera) => camera.lensDirection == CameraLensDirection.front,
-        );
-      } else {
-        // Use back camera
-        cameraToUse = widget.cameras.firstWhere(
-          (camera) => camera.lensDirection == CameraLensDirection.back,
-        );
-      }
+  //     if (useFrontCamera) {
+  //       // Use front camera
+  //       cameraToUse = widget.cameras.firstWhere(
+  //         (camera) => camera.lensDirection == CameraLensDirection.front,
+  //       );
+  //     } else {
+  //       // Use back camera
+  //       cameraToUse = widget.cameras.firstWhere(
+  //         (camera) => camera.lensDirection == CameraLensDirection.back,
+  //       );
+  //     }
 
-      // ignore: unnecessary_null_comparison
-      if (cameraToUse != null) {
-        // Enable Picture-in-Picture mode with the selected camera
-        await floating.enable(aspectRatio: const Rational(4, 3));
-        setState(() {
-          isPiPEnabled = true;
-          _isButtonVisible = false;
-        });
+  //     // ignore: unnecessary_null_comparison
+  //     if (cameraToUse != null) {
+  //       // Enable Picture-in-Picture mode with the selected camera
+  //       await floating.enable(aspectRatio: const Rational(4, 3));
+  //       setState(() {
+  //         isPiPEnabled = true;
+  //         _isButtonVisible = false;
+  //       });
 
-        // Initialize the selected camera
-        _controller = CameraController(cameraToUse, ResolutionPreset.medium);
-        await _controller!.initialize();
-        if (useFrontCamera) {
-          _controller!.setZoomLevel(1); // Set zoom level for front camera
-        } else {
-          _controller!.setZoomLevel(1); // Set zoom level for back camera
-        }
-        setState(() {});
-      } else {
-        print('Selected camera not found.');
-      }
-    } else {
-      setState(() {
-        _isButtonVisible = true;
-      });
-    }
-  }
+  //       // Initialize the selected camera
+  //       _controller = CameraController(cameraToUse, ResolutionPreset.medium);
+  //       await _controller!.initialize();
+  //       if (useFrontCamera) {
+  //         _controller!.setZoomLevel(1); // Set zoom level for front camera
+  //       } else {
+  //         _controller!.setZoomLevel(1); // Set zoom level for back camera
+  //       }
+  //       setState(() {});
+  //     } else {
+  //       print('Selected camera not found.');
+  //     }
+  //   } else {
+  //     setState(() {
+  //       _isButtonVisible = true;
+  //     });
+  //   }
+  // }
 
-  Future<void> enablePiP(bool useFrontCamera) async {
-    if (!isPiPEnabled) {
-      CameraDescription cameraToUse;
+  // Future<void> enablePiP(bool useFrontCamera) async {
+  //   if (!isPiPEnabled) {
+  //     CameraDescription cameraToUse;
 
-      if (useFrontCamera) {
-        // Use front camera
-        cameraToUse = widget.cameras.firstWhere(
-          (camera) => camera.lensDirection == CameraLensDirection.front,
-        );
-      } else {
-        // Use back camera
-        cameraToUse = widget.cameras.firstWhere(
-          (camera) => camera.lensDirection == CameraLensDirection.back,
-        );
-      }
+  //     if (useFrontCamera) {
+  //       // Use front camera
+  //       cameraToUse = widget.cameras.firstWhere(
+  //         (camera) => camera.lensDirection == CameraLensDirection.front,
+  //       );
+  //     } else {
+  //       // Use back camera
+  //       cameraToUse = widget.cameras.firstWhere(
+  //         (camera) => camera.lensDirection == CameraLensDirection.back,
+  //       );
+  //     }
 
-      // ignore: unnecessary_null_comparison
-      if (cameraToUse != null) {
-        // Enable Picture-in-Picture mode with the selected camera
-        await floating.enable(aspectRatio: const Rational(4, 3));
-        setState(() {
-          isPiPEnabled = true;
-          _isButtonVisible = false;
-        });
+  //     // ignore: unnecessary_null_comparison
+  //     if (cameraToUse != null) {
+  //       // Enable Picture-in-Picture mode with the selected camera
+  //       await floating.enable(aspectRatio: const Rational(4, 3));
+  //       setState(() {
+  //         isPiPEnabled = true;
+  //         _isButtonVisible = false;
+  //       });
 
-        // Initialize the selected camera
-        _controller = CameraController(cameraToUse, ResolutionPreset.medium);
-        await _controller!.initialize();
-        if (useFrontCamera) {
-          _controller!.setZoomLevel(1); // Set zoom level for front camera
-        } else {
-          _controller!.setZoomLevel(1); // Set zoom level for back camera
-        }
-        setState(() {});
-        startRecording();
-      } else {
-        print('Selected camera not found.');
-      }
-    } else {
-      setState(() {
-        _isButtonVisible = true;
-      });
-    }
-  }
+  //       // Initialize the selected camera
+  //       _controller = CameraController(cameraToUse, ResolutionPreset.medium);
+  //       await _controller!.initialize();
+  //       if (useFrontCamera) {
+  //         _controller!.setZoomLevel(1); // Set zoom level for front camera
+  //       } else {
+  //         _controller!.setZoomLevel(1); // Set zoom level for back camera
+  //       }
+  //       setState(() {});
+  //       startRecording();
+  //     } else {
+  //       print('Selected camera not found.');
+  //     }
+  //   } else {
+  //     setState(() {
+  //       _isButtonVisible = true;
+  //     });
+  //   }
+  // }
 
   void startRecording() async {
     if (_controller!.value.isInitialized && !isRecording) {
@@ -586,100 +588,6 @@ class _SecondPageState extends State<SecondPage> with WidgetsBindingObserver {
                                                   .height *
                                               0.165,
                                         ),
-                                        // GestureDetector(
-                                        //   onTap: () {
-                                        //     showDialog(
-                                        //       context: context,
-                                        //       builder: (BuildContext context) {
-                                        //         return AlertDialog(
-                                        //           backgroundColor:
-                                        //               const Color(0xff00061c),
-                                        //           title: const Align(
-                                        //             alignment: Alignment.center,
-                                        //             child: Text(
-                                        //               'Choose Options',
-                                        //               style: TextStyle(
-                                        //                   color: Colors.white),
-                                        //             ),
-                                        //           ),
-                                        //           content:
-                                        //               SingleChildScrollView(
-                                        //             child: ListBody(
-                                        //               children: <Widget>[
-                                        //                 TextButton(
-                                        //                   child: const Text(
-                                        //                     'View',
-                                        //                     style: TextStyle(
-                                        //                         color: Colors
-                                        //                             .white),
-                                        //                   ),
-                                        //                   onPressed: () {
-                                        //                     enablePiPs(true);
-                                        //                     Navigator.pop(
-                                        //                         context);
-                                        //                   },
-                                        //                 ),
-                                        //                 TextButton(
-                                        //                   child: const Text(
-                                        //                     'Recording',
-                                        //                     style: TextStyle(
-                                        //                         color: Colors
-                                        //                             .white),
-                                        //                   ),
-                                        //                   onPressed: () {
-                                        //                     // Placeholder for screen reader functionality
-                                        //                     enablePiP(true);
-                                        //                     Navigator.pop(
-                                        //                         context);
-                                        //                   },
-                                        //                 ),
-                                        //               ],
-                                        //             ),
-                                        //           ),
-                                        //         );
-                                        //       },
-                                        //     );
-                                        //   },
-                                        //   child: Column(
-                                        //     children: [
-                                        //       SizedBox(
-                                        //         width: MediaQuery.of(context)
-                                        //                 .size
-                                        //                 .width *
-                                        //             0.175 *
-                                        //             settings.fontSize,
-                                        //         child: Image.asset(
-                                        //           "images/Open-Camera.png",
-                                        //           fit: BoxFit.contain,
-                                        //         ),
-                                        //       ),
-                                        //       SizedBox(
-                                        //         height: MediaQuery.of(context)
-                                        //                 .size
-                                        //                 .height *
-                                        //             0.02,
-                                        //       ),
-                                        //       Text(
-                                        //         " Floating Back \n Facing Camera\n",
-                                        //         textAlign: TextAlign.center,
-                                        //         style: TextStyle(
-                                        //           color: Theme.of(context)
-                                        //                       .brightness ==
-                                        //                   Brightness.dark
-                                        //               ? Colors.white
-                                        //               : Colors.black,
-                                        //           fontSize:
-                                        //               MediaQuery.of(context)
-                                        //                       .size
-                                        //                       .width *
-                                        //                   0.035 *
-                                        //                   settings.fontSize,
-                                        //           fontWeight: FontWeight.w300,
-                                        //         ),
-                                        //       ),
-                                        //     ],
-                                        //   ),
-                                        // ),
                                         GestureDetector(
                                           onTap: () {
                                             showDialog(
@@ -924,244 +832,120 @@ class _SecondPageState extends State<SecondPage> with WidgetsBindingObserver {
                                                         .width *
                                                     0.03,
                                               ),
-                                              // GestureDetector(
-                                              //   onTap: () {
-                                              //     showDialog(
-                                              //       context: context,
-                                              //       builder:
-                                              //           (BuildContext context) {
-                                              //         return AlertDialog(
-                                              //           backgroundColor:
-                                              //               const Color(
-                                              //                   0xff00061c),
-                                              //           title: const Align(
-                                              //             alignment:
-                                              //                 Alignment.center,
-                                              //             child: Text(
-                                              //               'Choose Options',
-                                              //               style: TextStyle(
-                                              //                   color: Colors
-                                              //                       .white),
-                                              //             ),
-                                              //           ),
-                                              //           content:
-                                              //               SingleChildScrollView(
-                                              //             child: ListBody(
-                                              //               children: <Widget>[
-                                              //                 TextButton(
-                                              //                   child:
-                                              //                       const Text(
-                                              //                     'View',
-                                              //                     style: TextStyle(
-                                              //                         color: Colors
-                                              //                             .white),
-                                              //                   ),
-                                              //                   onPressed: () {
-                                              //                     enablePiPs(
-                                              //                         false);
-                                              //                     Navigator.of(
-                                              //                             context)
-                                              //                         .pop();
-                                              //                   },
-                                              //                 ),
-                                              //                 TextButton(
-                                              //                   child:
-                                              //                       const Text(
-                                              //                     'Recording',
-                                              //                     style: TextStyle(
-                                              //                         color: Colors
-                                              //                             .white),
-                                              //                   ),
-                                              //                   onPressed: () {
-                                              //                     // Placeholder for screen reader functionality
-                                              //                     enablePiP(
-                                              //                         false);
-                                              //                     Navigator.of(
-                                              //                             context)
-                                              //                         .pop();
-                                              //                   },
-                                              //                 ),
-                                              //               ],
-                                              //             ),
-                                              //           ),
-                                              //         );
-                                              //       },
-                                              //     );
-                                              //   },
-                                              //   child: Column(
-                                              //     children: [
-                                              //       SizedBox(
-                                              //         width:
-                                              //             MediaQuery.of(context)
-                                              //                     .size
-                                              //                     .width *
-                                              //                 0.175 *
-                                              //                 settings.fontSize,
-                                              //         child: Image.asset(
-                                              //           "images/Open-Camera.png",
-                                              //           fit: BoxFit.contain,
-                                              //         ),
-                                              //       ),
-                                              //       SizedBox(
-                                              //         height:
-                                              //             MediaQuery.of(context)
-                                              //                     .size
-                                              //                     .height *
-                                              //                 0.02,
-                                              //       ),
-                                              //       Text(
-                                              //         "Floating Front \n Facing Camera \n",
-                                              //         textAlign:
-                                              //             TextAlign.center,
-                                              //         style: TextStyle(
-                                              //           color: Theme.of(context)
-                                              //                       .brightness ==
-                                              //                   Brightness.dark
-                                              //               ? Colors.white
-                                              //               : Colors.black,
-                                              //           fontSize: MediaQuery.of(
-                                              //                       context)
-                                              //                   .size
-                                              //                   .width *
-                                              //               0.035 *
-                                              //               settings.fontSize,
-                                              //           fontWeight:
-                                              //               FontWeight.w300,
-                                              //         ),
-                                              //       ),
-                                              //     ],
-                                              //   ),
-                                              // ),
-                                              // SizedBox(
-                                              //   width: MediaQuery.of(context)
-                                              //           .size
-                                              //           .width *
-                                              //       0.2,
-                                              // ),
-                                              // GestureDetector(
-                                              //   onTap: () {
-                                              //     showDialog(
-                                              //       context: context,
-                                              //       builder:
-                                              //           (BuildContext context) {
-                                              //         return AlertDialog(
-                                              //           backgroundColor:
-                                              //               const Color(
-                                              //                   0xff00061c),
-                                              //           title: const Align(
-                                              //             alignment:
-                                              //                 Alignment.center,
-                                              //             child: Text(
-                                              //               'Choose Options',
-                                              //               style: TextStyle(
-                                              //                   color: Colors
-                                              //                       .white),
-                                              //             ),
-                                              //           ),
-                                              //           content:
-                                              //               SingleChildScrollView(
-                                              //             child: ListBody(
-                                              //               children: <Widget>[
-                                              //                 TextButton(
-                                              //                   child:
-                                              //                       const Text(
-                                              //                     'View',
-                                              //                     style: TextStyle(
-                                              //                         color: Colors
-                                              //                             .white),
-                                              //                   ),
-                                              //                   onPressed: () {
-                                              //                     Navigator
-                                              //                         .push(
-                                              //                       context,
-                                              //                       MaterialPageRoute(
-                                              //                         builder:
-                                              //                             (_) =>
-                                              //                                 const SplitScreenPage(),
-                                              //                       ),
-                                              //                     ).then(
-                                              //                       (_) => Navigator
-                                              //                           .pop(
-                                              //                               context),
-                                              //                     );
-                                              //                   },
-                                              //                 ),
-                                              //                 TextButton(
-                                              //                   child:
-                                              //                       const Text(
-                                              //                     'Recording',
-                                              //                     style: TextStyle(
-                                              //                         color: Colors
-                                              //                             .white),
-                                              //                   ),
-                                              //                   onPressed: () {
-                                              //                     // Placeholder for screen reader functionality
-                                              //                     Navigator
-                                              //                         .push(
-                                              //                       context,
-                                              //                       MaterialPageRoute(
-                                              //                         builder:
-                                              //                             (_) =>
-                                              //                                 const RecordSplitBackCameraPage(),
-                                              //                       ),
-                                              //                     ).then(
-                                              //                       (_) => Navigator
-                                              //                           .pop(
-                                              //                               context),
-                                              //                     );
-                                              //                   },
-                                              //                 ),
-                                              //               ],
-                                              //             ),
-                                              //           ),
-                                              //         );
-                                              //       },
-                                              //     );
-                                              //   },
-                                              //   child: Column(
-                                              //     children: [
-                                              //       SizedBox(
-                                              //         width:
-                                              //             MediaQuery.of(context)
-                                              //                     .size
-                                              //                     .width *
-                                              //                 0.175 *
-                                              //                 settings.fontSize,
-                                              //         child: Image.asset(
-                                              //           "images/split-browser-icon.png",
-                                              //           fit: BoxFit.contain,
-                                              //         ),
-                                              //       ),
-                                              //       SizedBox(
-                                              //         height:
-                                              //             MediaQuery.of(context)
-                                              //                     .size
-                                              //                     .height *
-                                              //                 0.02,
-                                              //       ),
-                                              //       Text(
-                                              //         "Front Split \n Browser\n",
-                                              //         textAlign:
-                                              //             TextAlign.center,
-                                              //         style: TextStyle(
-                                              //           color: Theme.of(context)
-                                              //                       .brightness ==
-                                              //                   Brightness.dark
-                                              //               ? Colors.white
-                                              //               : Colors.black,
-                                              //           fontSize: MediaQuery.of(
-                                              //                       context)
-                                              //                   .size
-                                              //                   .width *
-                                              //               0.035 *
-                                              //               settings.fontSize,
-                                              //           fontWeight:
-                                              //               FontWeight.w300,
-                                              //         ),
-                                              //       ),
-                                              //     ],
-                                              //   ),
-                                              // ),
+                                              GestureDetector(
+                                                onTap: () {
+                                                  Navigator.push(
+                                                    context,
+                                                    MaterialPageRoute(
+                                                      builder: (_) =>
+                                                          const DualBrowserPage(),
+                                                    ),
+                                                  );
+                                                },
+                                                child: Column(
+                                                  children: [
+                                                    SizedBox(
+                                                      width:
+                                                          MediaQuery.of(context)
+                                                                  .size
+                                                                  .width *
+                                                              0.175 *
+                                                              settings.fontSize,
+                                                      child: Image.asset(
+                                                        "images/split-browser-icon.png",
+                                                        fit: BoxFit.contain,
+                                                      ),
+                                                    ),
+                                                    SizedBox(
+                                                      height:
+                                                          MediaQuery.of(context)
+                                                                  .size
+                                                                  .height *
+                                                              0.02,
+                                                    ),
+                                                    Text(
+                                                      "Dual \n Browser \n",
+                                                      textAlign:
+                                                          TextAlign.center,
+                                                      style: TextStyle(
+                                                        color: Theme.of(context)
+                                                                    .brightness ==
+                                                                Brightness.dark
+                                                            ? Colors.white
+                                                            : Colors.black,
+                                                        fontSize: MediaQuery.of(
+                                                                    context)
+                                                                .size
+                                                                .width *
+                                                            0.035 *
+                                                            settings.fontSize,
+                                                        fontWeight:
+                                                            FontWeight.w300,
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                              SizedBox(
+                                                width: MediaQuery.of(context)
+                                                        .size
+                                                        .width *
+                                                    0.2,
+                                              ),
+                                              GestureDetector(
+                                                onTap: () {
+                                                  Navigator.push(
+                                                    context,
+                                                    MaterialPageRoute(
+                                                      builder: (_) =>
+                                                          const DualSocialPage(),
+                                                    ),
+                                                  );
+                                                },
+                                                child: Column(
+                                                  children: [
+                                                    SizedBox(
+                                                      width:
+                                                          MediaQuery.of(context)
+                                                                  .size
+                                                                  .width *
+                                                              0.175 *
+                                                              settings.fontSize,
+                                                      child: Image.asset(
+                                                        "images/split-browser-icon.png",
+                                                        fit: BoxFit.contain,
+                                                      ),
+                                                    ),
+                                                    SizedBox(
+                                                      height:
+                                                          MediaQuery.of(context)
+                                                                  .size
+                                                                  .height *
+                                                              0.02,
+                                                    ),
+                                                    Text(
+                                                      "Social Dual \n Browser \n",
+                                                      textAlign:
+                                                          TextAlign.center,
+                                                      style: TextStyle(
+                                                        color: Theme.of(context)
+                                                                    .brightness ==
+                                                                Brightness.dark
+                                                            ? Colors.white
+                                                            : Colors.black,
+                                                        fontSize: MediaQuery.of(
+                                                                    context)
+                                                                .size
+                                                                .width *
+                                                            0.035 *
+                                                            settings.fontSize,
+                                                        fontWeight:
+                                                            FontWeight.w300,
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
                                             ],
                                           ),
                                         ),
@@ -1252,7 +1036,7 @@ class _SecondPageState extends State<SecondPage> with WidgetsBindingObserver {
                                 Navigator.of(context).pop();
                                 TTSService ttsService = TTSService();
                                 await ttsService.speak(
-                                    "In This Screen 3 icons Front Split Browser , Back Split Browser , SOS , Danny and Americans with Disabilities Act");
+                                    "In This Screen 5 icons Front Split Browser , Back Split Browser , Dual Browser , Social Dual Browser , SOS , Danny and Americans with Disabilities Act");
                               },
                             ),
                             TextButton(

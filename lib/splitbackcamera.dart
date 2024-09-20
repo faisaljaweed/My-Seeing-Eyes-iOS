@@ -85,7 +85,7 @@ class _SplitScreenPageState extends State<SplitScreenPage> {
             ),
             Center(
               child: WebView(
-                initialUrl: 'https://www.google.com/',
+                initialUrl: 'https://www.google.com',
                 javascriptMode: JavascriptMode.unrestricted,
                 onWebViewCreated: (WebViewController webViewController) {
                   _webViewController = webViewController;

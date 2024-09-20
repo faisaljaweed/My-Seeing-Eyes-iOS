@@ -27,15 +27,15 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSCameraUsageDescription</key>
-	<string>Your app needs access to the camera.</string>
+    <string>This app uses the camera to allow users to switch between front and back cameras for split-screen functionality.</string>
 	<key>NSContactsUsageDescription</key>
-	<string>Your app needs access to contacts.</string>
+    <string>This app requires access to contacts for emergency calls to your saved contacts in case of urgent situations.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Your app needs access to your location when in use.</string>
+    <string>This app uses your location to assist emergency services by providing them with your current location.</string>
 	<key>NSMicrophoneUsageDescription</key>
-	<string>Your app needs access to  the microphone.</string>
+    <string>This app uses the microphone to speak out loud the names of icons for visually impaired users.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Your app needs access to the photo library.</string>
+    <string>This app needs access to your photo library so you can choose videos or images to upload.</string>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
 	<key>UILaunchStoryboardName</key>

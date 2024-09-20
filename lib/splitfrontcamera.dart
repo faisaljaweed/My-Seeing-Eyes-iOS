@@ -96,7 +96,7 @@ class _SplitViewFrontCamersState extends State<SplitViewFrontCamers> {
             ),
             Center(
               child: WebView(
-                initialUrl: 'https://www.google.com/',
+                initialUrl: 'https://www.google.com',
                 javascriptMode: JavascriptMode.unrestricted,
                 onWebViewCreated: (WebViewController webViewController) {
                   _webViewController = webViewController;
